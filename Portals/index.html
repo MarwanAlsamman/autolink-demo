@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoLink — بوابات العرض التجريبي</title>
+<link rel="stylesheet" href="shared/style.css">
+<style>
+  .foot { text-align: center; color: var(--text4); font-size: .72rem; padding: 20px; }
+  .land-hero .lang-toggle { position: absolute; top: 18px; inset-inline-end: 20px; background: #fff; }
+  .land-hero { position: relative; }
+</style>
+</head>
+<body>
+
+<div class="land-hero">
+  <div class="lang-toggle">
+    <button data-lang="ar">ع</button>
+    <button data-lang="en">EN</button>
+  </div>
+  <img src="shared/img/mascot.png" alt="AutoLink mascot">
+  <h1><span class="brand-logo"><span class="a">Auto</span><span class="l">Link</span></span></h1>
+  <p data-i18n="hero_sub"></p>
+  <p style="color:var(--gold);font-weight:700;margin-top:8px;font-size:.82rem" data-i18n="tagline"></p>
+</div>
+
+<div class="land-cards">
+  <a class="land-card" href="admin/index.html">
+    <div class="ic" style="background:var(--navy)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F0A62B" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx="1" fill="#F0A62B" stroke="none"/><rect x="12" y="8" width="3" height="10" rx="1" fill="#F0A62B" stroke="none"/><rect x="17" y="4" width="3" height="14" rx="1" fill="#F0A62B" stroke="none"/></svg>
+    </div>
+    <h3 data-i18n="admin_title"></h3>
+    <p data-i18n="admin_sub"></p>
+    <div class="btn navy sm go" data-i18n="enter"></div>
+  </a>
+
+  <a class="land-card" href="provider/index.html">
+    <div class="ic" style="background:var(--cream);border:1px solid var(--cream-border)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C8891A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <h3 data-i18n="provider_title"></h3>
+    <p data-i18n="provider_sub"></p>
+    <div class="btn gold sm go" data-i18n="enter"></div>
+  </a>
+
+  <a class="land-card" href="seller/index.html">
+    <div class="ic" style="background:var(--blue-bg)">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E7AE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 8h5M19.5 5.5v5"/></svg>
+    </div>
+    <h3 data-i18n="seller_title"></h3>
+    <p data-i18n="seller_sub"></p>
+    <div class="btn navy sm go" data-i18n="enter"></div>
+  </a>
+</div>
+
+<div class="foot" data-i18n="foot"></div>
+
+<script src="shared/app.js"></script>
+<script>
+AL.boot({
+  ar: {
+    hero_sub: 'منصة خدمات السيارات — بوابات العرض التجريبي للمستثمرين',
+    admin_title: 'بوابة الإدارة', admin_sub: 'لوحة تقارير شاملة: حجوزات، عمولات، مزودون، عروض ترويجية وتنبيهات تشغيلية.',
+    provider_title: 'بوابة مزود الخدمة', provider_sub: 'مركز النخبة للتظليل: تحقق من القسائم، إدارة الحجوزات، الأرباح، الفروع والتقييمات.',
+    seller_title: 'بوابة مندوب المبيعات', seller_sub: 'لمندوبي الوكالات: تسجيل عملاء مهتمين، متابعة الحالات، والعمولات المكتسبة.',
+    enter: 'دخول البوابة', foot: 'AutoLink © 2026 — نسخة عرض تجريبية، جميع البيانات وهمية.',
+  },
+  en: {
+    hero_sub: 'Automotive services marketplace — investor demo portals',
+    admin_title: 'Admin Portal', admin_sub: 'Full reporting dashboard: bookings, commissions, providers, promotions and operational alerts.',
+    provider_title: 'Service Provider Portal', provider_sub: 'Elite Tinting Center: validate vouchers, manage reservations, earnings, branches and reviews.',
+    seller_title: 'Outsource Seller Portal', seller_sub: 'For dealership reps: submit leads, track pipeline status, and earned commissions.',
+    enter: 'Enter portal', foot: 'AutoLink © 2026 — demo build, all data is fake.',
+  },
+});
+</script>
+</body>
+</html>
