@@ -1,5 +1,5 @@
 /* ============================================================
-   AutoLink Portals — shared helpers
+   LINKAR Portals — shared helpers
    i18n (AR-first, EN toggle), fake auth, toasts, modals,
    hand-drawn SVG charts (bars / line / donut) — zero deps,
    works from file:// with no network.
@@ -14,7 +14,8 @@ const AL = (() => {
       username: 'اسم المستخدم', password: 'كلمة المرور',
       login_btn: 'دخول', demo_btn: 'دخول تجريبي سريع',
       demo_note: 'نسخة عرض للمستثمرين — أي اسم مستخدم وكلمة مرور تعمل، أو استخدم الدخول التجريبي.',
-      tagline: 'قارن · اختر · احجز',
+      tagline: 'قارن • احجز • انطلق بثقة',
+      hero_h1: 'رابطك <em>الموثوق</em> للعناية بسيارتك',
       sar: 'ر.س', km: 'كم', save: 'حفظ', cancel: 'إلغاء', close: 'إغلاق',
       copy: 'نسخ', copied: 'تم النسخ ✓', saved: 'تم الحفظ بنجاح',
       all: 'الكل', search: 'بحث...', actions: 'إجراءات', status: 'الحالة',
@@ -29,7 +30,8 @@ const AL = (() => {
       username: 'Username', password: 'Password',
       login_btn: 'Sign in', demo_btn: 'Quick demo login',
       demo_note: 'Investor demo — any username & password works, or use quick demo login.',
-      tagline: 'Compare · Choose · Book',
+      tagline: 'Compare • Book • Drive with confidence',
+      hero_h1: 'Your trusted <em>link</em> to car care.',
       sar: 'SAR', km: 'km', save: 'Save', cancel: 'Cancel', close: 'Close',
       copy: 'Copy', copied: 'Copied ✓', saved: 'Saved successfully',
       all: 'All', search: 'Search...', actions: 'Actions', status: 'Status',
@@ -55,6 +57,7 @@ const AL = (() => {
 
   function applyI18n(root = document) {
     root.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    root.querySelectorAll('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
     root.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
     document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -303,7 +306,7 @@ const AL = (() => {
   }
 
   /** Area line chart with gradient fill. */
-  function areaChart(el, { labels, series, height = 220, color = '#F0A62B', format = money }) {
+  function areaChart(el, { labels, series, height = 220, color = '#7CC800', format = money }) {
     el.innerHTML = '';
     const W = 620, H = height, padB = 26, padT = 14, padX = 34;
     const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, style: 'width:100%;height:auto;display:block' });
@@ -417,7 +420,7 @@ const AL = (() => {
   }
 
   /** Days × hours intensity heatmap (plain divs). */
-  function heatmap(el, { days, hours, matrix, color = '11, 27, 51' }) {
+  function heatmap(el, { days, hours, matrix, color = '15, 31, 41' }) {
     el.innerHTML = '';
     const max = Math.max(...matrix.flat()) || 1;
     const wrap = document.createElement('div');

@@ -1,5 +1,5 @@
 /* ============================================================
-   AutoLink Portals — bilingual seed data (all fake, demo only)
+   LINKAR Portals — bilingual seed data (all fake, demo only)
    ============================================================ */
 
 const SEED = {
@@ -15,8 +15,8 @@ const SEED = {
   },
 
   services: {
-    tinting:  { ar: 'تظليل نوافذ',  en: 'Window Tinting', color: '#0B1B33' },
-    ppf:      { ar: 'حماية PPF',    en: 'PPF Protection', color: '#F0A62B' },
+    tinting:  { ar: 'تظليل نوافذ',  en: 'Window Tinting', color: '#0F1F29' },
+    ppf:      { ar: 'حماية PPF',    en: 'PPF Protection', color: '#A4FF00' },
     wash:     { ar: 'غسيل',         en: 'Car Wash',       color: '#1E7AE0' },
     detailing:{ ar: 'تلميع وتفصيل', en: 'Detailing',      color: '#7B4FD1' },
   },
@@ -47,8 +47,8 @@ const SEED = {
       { key: 'wash', value: 20 }, { key: 'detailing', value: 10 },
     ],
     byCity: [
-      { label: { ar: 'جدة', en: 'Jeddah' }, value: 1520, color: '#F0A62B' },
-      { label: { ar: 'الرياض', en: 'Riyadh' }, value: 1086, color: '#0B1B33' },
+      { label: { ar: 'جدة', en: 'Jeddah' }, value: 1520, color: '#A4FF00' },
+      { label: { ar: 'الرياض', en: 'Riyadh' }, value: 1086, color: '#0F1F29' },
     ],
     topProviders: [
       { name: { ar: 'XPEL السعودية', en: 'XPEL Saudi' }, logo: 'XPEL', bookings: 316, revenue: 947000, rating: 4.8 },
@@ -237,8 +237,8 @@ const SEED = {
     analytics: {
       netTrend: [52300, 55800, 58900, 61200, 64800, 68300, 71600, 74375],
       byPackage: [
-        { label: { ar: 'نانو سيراميك كامل', en: 'Full nano-ceramic' }, value: 44, color: '#0B1B33' },
-        { label: { ar: 'XPEL شراكة', en: 'XPEL partner' }, value: 24, color: '#F0A62B' },
+        { label: { ar: 'نانو سيراميك كامل', en: 'Full nano-ceramic' }, value: 44, color: '#0F1F29' },
+        { label: { ar: 'XPEL شراكة', en: 'XPEL partner' }, value: 24, color: '#A4FF00' },
         { label: { ar: 'تظليل أمامي/خلفي', en: 'Front/rear tint' }, value: 21, color: '#1E7AE0' },
         { label: { ar: 'باقة VIP', en: 'VIP bundle' }, value: 11, color: '#7B4FD1' },
       ],
@@ -297,7 +297,7 @@ const SEED = {
         { at: 30, bonus: 500 }, { at: 45, bonus: 900 }, { at: 60, bonus: 1500 },
       ],
       funnel: [
-        { label: { ar: 'عملاء مسجلون', en: 'Leads registered' }, value: 128, color: '#0B1B33' },
+        { label: { ar: 'عملاء مسجلون', en: 'Leads registered' }, value: 128, color: '#0F1F29' },
         { label: { ar: 'تم التواصل معهم', en: 'Contacted' }, value: 98, color: '#1E7AE0' },
         { label: { ar: 'عرض سعر مُرسل', en: 'Quoted' }, value: 71, color: '#7B4FD1' },
         { label: { ar: 'تم البيع ✓', en: 'Sold ✓' }, value: 46, color: '#1E9E5A' },

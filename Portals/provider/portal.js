@@ -1,4 +1,4 @@
-/* AutoLink — Service Provider Portal logic (demo, in-memory)
+/* LINKAR — Service Provider Portal logic (demo, in-memory)
    Star flows: voucher validation and reservation start — both gated by a
    client OTP confirmation (demo code 0000, same as the mobile app). */
 
@@ -14,7 +14,7 @@ AL.boot({
     nav_staff: 'الفنيون', nav_offers: 'عروضي', nav_analytics: 'التحليلات المالية',
     an_net_trend: 'صافي الإيراد الشهري', an_8m: 'آخر 8 أشهر', an_by_pkg: 'الإيراد حسب الباقة',
     an_heat: 'أكثر الساعات ازدحاماً', an_heat_hint: 'عدد الحجوزات لكل ساعة × يوم',
-    an_payouts: 'سجل التسويات من AutoLink', th_period: 'الفترة',
+    an_payouts: 'سجل التسويات من لينكار', th_period: 'الفترة',
     st_processing: 'قيد التحويل', paid: 'مدفوعة', export_csv: 'تصدير CSV', exported: 'تم تنزيل الملف ✓',
     k_today: 'حجوزات اليوم', k_month_rev: 'إيراد الشهر (صافي)', k_rating: 'متوسط التقييم', k_pending_v: 'قسائم بانتظار التحقق',
     vs_yesterday: 'عن الأمس', after_commission: 'بعد عمولة 15%', awaiting_validation: 'بانتظار وصول العملاء',
@@ -23,7 +23,7 @@ AL.boot({
     v_title: 'التحقق من قسيمة الحجز', v_sub: 'أدخل الرمز المرجعي المعروض في تطبيق العميل',
     v_check: 'تحقق', v_scan: 'مسح رمز QR', v_try: 'جرّب: AL-8X7K-92Q1 (صالح) · AL-USED-0001 (مستخدم) · AL-EXP-0001 (منتهي)',
     v_valid: 'قسيمة صالحة ✓', v_used: 'قسيمة مستخدمة مسبقاً', v_expired: 'قسيمة منتهية الصلاحية', v_notfound: 'لم يتم العثور على القسيمة',
-    v_notfound_sub: 'تأكد من الرمز أو اطلب من العميل إظهار القسيمة من تطبيق AutoLink.',
+    v_notfound_sub: 'تأكد من الرمز أو اطلب من العميل إظهار القسيمة من تطبيق لينكار.',
     v_customer: 'العميل', v_phone: 'الجوال', v_car: 'السيارة', v_service: 'الخدمة', v_branch: 'الفرع',
     v_amount: 'المبلغ المدفوع', v_payout: 'مستحقك (بعد 15%)', v_expiry: 'صالحة حتى', v_used_at: 'استُخدمت في',
     otp_send: 'إرسال رمز تحقق للعميل', otp_sent: 'أُرسل رمز التحقق لجوال العميل ✓',
@@ -63,7 +63,7 @@ AL.boot({
     nav_staff: 'Technicians', nav_offers: 'My Offers', nav_analytics: 'Financial Analytics',
     an_net_trend: 'Monthly net revenue', an_8m: 'Last 8 months', an_by_pkg: 'Revenue by package',
     an_heat: 'Busiest hours', an_heat_hint: 'Bookings per hour × day',
-    an_payouts: 'AutoLink payout history', th_period: 'Period',
+    an_payouts: 'LINKAR payout history', th_period: 'Period',
     st_processing: 'Processing', paid: 'Paid', export_csv: 'Export CSV', exported: 'File downloaded ✓',
     k_today: "Today's bookings", k_month_rev: 'Month revenue (net)', k_rating: 'Average rating', k_pending_v: 'Vouchers pending',
     vs_yesterday: 'vs yesterday', after_commission: 'after 15% commission', awaiting_validation: 'customers on the way',
@@ -72,7 +72,7 @@ AL.boot({
     v_title: 'Validate booking voucher', v_sub: "Enter the reference code shown in the customer's app",
     v_check: 'Check', v_scan: 'Scan QR code', v_try: 'Try: AL-8X7K-92Q1 (valid) · AL-USED-0001 (used) · AL-EXP-0001 (expired)',
     v_valid: 'Valid voucher ✓', v_used: 'Voucher already used', v_expired: 'Voucher expired', v_notfound: 'Voucher not found',
-    v_notfound_sub: 'Check the code or ask the customer to open the voucher in the AutoLink app.',
+    v_notfound_sub: 'Check the code or ask the customer to open the voucher in the LINKAR app.',
     v_customer: 'Customer', v_phone: 'Phone', v_car: 'Car', v_service: 'Service', v_branch: 'Branch',
     v_amount: 'Amount paid', v_payout: 'Your payout (after 15%)', v_expiry: 'Valid until', v_used_at: 'Used at',
     otp_send: 'Send OTP to customer', otp_sent: "OTP sent to the customer's phone ✓",
@@ -117,14 +117,14 @@ const $ = (s, r = document) => r.querySelector(s);
 const t = AL.t, L = AL.L;
 
 const STATUS_CHIP = {
-  new: 'gold', confirmed: 'blue', awaiting: 'purple',
+  new: 'lime', confirmed: 'blue', awaiting: 'purple',
   in_progress: 'gold', completed: 'green', dispute: 'red',
 };
 const CAL_COLORS = {
-  new:         { bg: '#FDF6E9', border: '#F0A62B' },
+  new:         { bg: '#F3FFE0', border: '#8FE000' },
   confirmed:   { bg: '#EDF3FC', border: '#1E7AE0' },
   awaiting:    { bg: '#F3EDFC', border: '#7B4FD1' },
-  in_progress: { bg: '#FDF6E9', border: '#D08615' },
+  in_progress: { bg: '#FFF5E0', border: '#E8A317' },
   completed:   { bg: '#EAF6EF', border: '#1E9E5A' },
   dispute:     { bg: '#FDECEC', border: '#D64545' },
 };
@@ -241,7 +241,7 @@ function voucherCard(code, v) {
   if (v.status === 'used') {
     box.innerHTML = `
       <div class="voucher-result warn">
-        <div class="vr-head"><span class="vr-ic" style="background:var(--gold)">!</span>${t('v_used')}</div>
+        <div class="vr-head"><span class="vr-ic" style="background:var(--amber)">!</span>${t('v_used')}</div>
         <div class="mt-2">
           <div class="kv"><span class="k">${t('v_customer')}</span><span class="v">${L(v.customer)}</span></div>
           <div class="kv"><span class="k">${t('v_service')}</span><span class="v">${L(v.service)}</span></div>
@@ -579,7 +579,7 @@ function renderStaff() {
       <div class="staff-avatar">${L(s.name).slice(0, 1)}</div>
       <div style="flex:1;min-width:150px">
         <div style="font-weight:700;font-size:.85rem">${L(s.name)}
-          <span style="color:var(--gold);font-size:.72rem;font-weight:800">★ ${s.rating}</span></div>
+          <span style="color:var(--star);font-size:.72rem;font-weight:800">★ ${s.rating}</span></div>
         <div class="small muted">${L(s.role)} · ${L(s.branch)}</div>
       </div>
       <div class="stat-pill" style="min-width:86px"><div class="v">${s.todayJobs}</div><div class="l">${t('jobs_today')}</div></div>
@@ -587,7 +587,7 @@ function renderStaff() {
         <div style="display:flex;justify-content:space-between;font-size:.68rem;font-weight:700;margin-bottom:4px">
           <span class="muted">${t('utilization')}</span><span class="cell-num">${s.utilization}%</span>
         </div>
-        <div class="progressbar"><div style="width:${s.utilization}%;background:${s.utilization > 80 ? 'var(--red)' : s.utilization > 60 ? 'var(--gold)' : 'var(--green)'}"></div></div>
+        <div class="progressbar"><div style="width:${s.utilization}%;background:${s.utilization > 80 ? 'var(--red)' : s.utilization > 60 ? 'var(--amber)' : 'var(--green)'}"></div></div>
       </div>`;
     root.appendChild(row);
   });
@@ -606,7 +606,7 @@ function renderOffers() {
         <div style="font-weight:700;font-size:.84rem">${L(o.title)}</div>
         <div class="small muted">${L(SEED.services[o.service])} · ${t('offer_until')}: <span class="cell-num">${o.until}</span> · ${AL.money(o.uses)} ${t('offer_uses')}</div>
       </div>
-      ${o.discount ? `<span class="chip gold">-${o.discount}%</span>` : ''}
+      ${o.discount ? `<span class="chip lime">-${o.discount}%</span>` : ''}
       <span class="chip ${o.active ? 'green' : 'gray'}">${t(o.active ? 'active' : 'inactive')}</span>
       <button class="btn outline sm" onclick="toggleOffer(${i})">${t(o.active ? 'disable' : 'enable')}</button>`;
     root.appendChild(row);
@@ -649,7 +649,7 @@ function renderReviews() {
           <div style="font-weight:700;font-size:.85rem">${L(rv.customer)}</div>
           <div class="small muted cell-num">${rv.date}</div>
         </div>
-        <div style="color:var(--gold);font-size:.95rem;letter-spacing:2px">${stars}</div>
+        <div style="color:var(--star);font-size:.95rem;letter-spacing:2px">${stars}</div>
       </div>
       <p style="font-size:.85rem;margin-top:10px;line-height:1.8">${L(rv.text)}</p>
       <div id="reply-zone-${i}" class="mt-2">

@@ -1,6 +1,6 @@
-# AutoLink — Investor Demo Web Portals
+# LINKAR — Investor Demo Web Portals
 
-Three fully offline, static demo portals for the AutoLink automotive-services
+Three fully offline, static demo portals for the LINKAR (لينكار) automotive-services
 marketplace (window tinting, PPF, car wash, detailing). Pure HTML + CSS +
 vanilla JS — **no backend, no build tools, no internet needed**.
 
@@ -11,11 +11,11 @@ Just double-click any of these files — they work straight from disk (`file://`
 | Portal | File | Who it's for |
 |---|---|---|
 | **Landing** | `index.html` | Start here — links to all 3 portals |
-| **Admin** | `admin/index.html` | AutoLink team — full reporting dashboard |
+| **Admin** | `admin/index.html` | LINKAR team — full reporting dashboard |
 | **Service Provider** | `provider/index.html` | مركز النخبة للتظليل — voucher validation, bookings, earnings |
 | **Outsource Seller** | `seller/index.html` | أحمد محمد (وكالة الجبر) — leads & commissions |
 
-**Login:** any username/password works, or press the gold **دخول تجريبي سريع /
+**Login:** any username/password works, or press the green **دخول تجريبي سريع /
 Quick demo login** button.
 
 **Language:** the ع / EN toggle in the top bar switches Arabic (RTL) ↔ English
@@ -51,7 +51,7 @@ Quick demo login** button.
 - **Admin → التقارير المالية**: GMV area chart, commissions-by-service stacked
   bars, bookings-target gauge, P&L summary, refunds log with **CSV export**.
 - **Provider → التحليلات المالية**: net-revenue trend, revenue-by-package
-  donut, busiest-hours heatmap, AutoLink payout history (CSV export).
+  donut, busiest-hours heatmap, LINKAR payout history (CSV export).
 - **Seller → أهدافي وعمولاتي**: sales-target gauge with bonus tiers,
   lead→sale conversion funnel, monthly commissions chart, payout bank card
   (copy IBAN), commissions CSV export.
@@ -63,6 +63,8 @@ Quick demo login** button.
   demo to its seeded state (only the language choice and demo login persist,
   via `localStorage`).
 - Charts are hand-drawn inline SVG — no libraries, nothing loaded at runtime.
-- Design system (`shared/style.css`) mirrors the mobile app exactly: navy
-  `#0B1B33`, gold `#F0A62B`, Cairo font (bundled in `shared/fonts/`), RTL-first
-  with the sidebar on the right.
+- Design system (`shared/style.css`) follows the LINKAR Brand Guidelines v1.0
+  and the rebranded mobile app: Deep Charcoal `#0F1F29`, Fluorescent Green
+  `#A4FF00` (green text on white uses `#3F7F00`), smart-arrow chevron motif,
+  pill buttons, 12–16px radii, Cairo font (bundled in `shared/fonts/`),
+  RTL-first with the sidebar on the right. Logos live in `shared/img/`.

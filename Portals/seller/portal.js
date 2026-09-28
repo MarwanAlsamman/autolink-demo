@@ -1,4 +1,4 @@
-/* AutoLink — Outsource Seller Portal logic (demo, in-memory) */
+/* LINKAR — Outsource Seller Portal logic (demo, in-memory) */
 
 const S = SEED.seller;
 
@@ -23,7 +23,7 @@ AL.boot({
     s_sold: 'مبيعات مكتملة', s_followup: 'قيد المتابعة', s_customers: 'إجمالي العملاء',
     this_month: 'هذا الشهر', in_pipeline: 'لدى فريق المبيعات',
     chart_comm: 'العمولات الشهرية (ر.س)', chart_services: 'المبيعات حسب الخدمة',
-    nl_title: 'تسجيل عميل مهتم', nl_hint: 'يُرسل لفريق مبيعات AutoLink',
+    nl_title: 'تسجيل عميل مهتم', nl_hint: 'يُرسل لفريق مبيعات لينكار',
     nl_owner: '👤 بيانات مالك السيارة', nl_car: '🚗 بيانات السيارة', nl_services: '⭐ الخدمات المطلوبة',
     f_name: 'الاسم الكامل', f_phone: 'رقم الجوال', f_email: 'البريد الإلكتروني', f_city: 'المدينة',
     city_jeddah: 'جدة', city_riyadh: 'الرياض',
@@ -31,7 +31,7 @@ AL.boot({
     f_notes: 'ملاحظات', f_files: 'صور السيارة (اختياري)',
     dz_text: 'اضغط لاختيار صور أو ملفات', nl_submit: 'إرسال لفريق المبيعات',
     need_fields: 'فضلاً أدخل الاسم ورقم الجوال واختر خدمة واحدة على الأقل',
-    ok_title: 'تم إرسال العميل بنجاح!', ok_sub: 'وصل الطلب لفريق مبيعات AutoLink وسيتم التواصل مع العميل خلال ساعات العمل. تتبع الحالة من "عملائي".',
+    ok_title: 'تم إرسال العميل بنجاح!', ok_sub: 'وصل الطلب لفريق مبيعات لينكار وسيتم التواصل مع العميل خلال ساعات العمل. تتبع الحالة من "عملائي".',
     ok_goleads: 'عرض عملائي', ok_again: 'تسجيل عميل آخر',
     ml_title: 'عملائي', ml_hint: 'اضغط على أي صف لعرض التفاصيل',
     th_customer: 'العميل', th_car: 'السيارة', th_services: 'الخدمات', th_date: 'التاريخ', th_code: 'رمز التتبع',
@@ -64,7 +64,7 @@ AL.boot({
     s_sold: 'Sales completed', s_followup: 'In follow-up', s_customers: 'Total customers',
     this_month: 'this month', in_pipeline: 'with the sales team',
     chart_comm: 'Monthly commissions (SAR)', chart_services: 'Sales by service',
-    nl_title: 'Register interested customer', nl_hint: 'Sent to the AutoLink sales team',
+    nl_title: 'Register interested customer', nl_hint: 'Sent to the LINKAR sales team',
     nl_owner: '👤 Car owner info', nl_car: '🚗 Car info', nl_services: '⭐ Interested services',
     f_name: 'Full name', f_phone: 'Phone number', f_email: 'Email', f_city: 'City',
     city_jeddah: 'Jeddah', city_riyadh: 'Riyadh',
@@ -72,7 +72,7 @@ AL.boot({
     f_notes: 'Notes', f_files: 'Car photos (optional)',
     dz_text: 'Click to choose photos or files', nl_submit: 'Send to sales team',
     need_fields: 'Please enter name, phone, and at least one service',
-    ok_title: 'Lead sent successfully!', ok_sub: 'The AutoLink sales team received it and will contact the customer during working hours. Track it under "My Leads".',
+    ok_title: 'Lead sent successfully!', ok_sub: 'The LINKAR sales team received it and will contact the customer during working hours. Track it under "My Leads".',
     ok_goleads: 'View my leads', ok_again: 'Register another',
     ml_title: 'My Leads', ml_hint: 'Click any row for details',
     th_customer: 'Customer', th_car: 'Car', th_services: 'Services', th_date: 'Date', th_code: 'Tracking code',
@@ -231,7 +231,7 @@ function openLead(i) {
     <div class="divider-h"></div>
     <div class="timeline mt-2">
       ${tlItem(0, t('tl_created'), ld.date)}
-      ${tlItem(1, t('tl_sent'), 'AutoLink Sales')}
+      ${tlItem(1, t('tl_sent'), 'LINKAR Sales')}
       ${tlItem(2, t('tl_contacted'), ld.status === 'contacted' || stage > 2 ? '✓' : '…')}
       ${tlItem(3, t('tl_result'), ld.status === 'sold' ? t('st_sold') : ld.status === 'lost' ? t('st_lost') : '…')}
     </div>`;
@@ -331,7 +331,7 @@ function renderLeaderboard() {
       <div style="width:34px;text-align:center;font-size:${i < 3 ? '1.3rem' : '.85rem'};font-weight:800;color:var(--text3)">${medals[i] || i + 1}</div>
       <div class="staff-avatar">${L(r.name).slice(0, 1)}</div>
       <div style="flex:1;min-width:140px">
-        <div style="font-weight:700;font-size:.85rem">${L(r.name)} ${r.me ? `<span class="chip gold">${t('lb_you')}</span>` : ''}</div>
+        <div style="font-weight:700;font-size:.85rem">${L(r.name)} ${r.me ? `<span class="chip lime">${t('lb_you')}</span>` : ''}</div>
         <div class="small muted">${L(r.agency)}</div>
       </div>
       <div class="stat-pill" style="min-width:80px"><div class="v">${r.sales}</div><div class="l">${t('lb_sales')}</div></div>

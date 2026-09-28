@@ -1,11 +1,11 @@
-/* AutoLink — Admin Portal logic (demo, in-memory) */
+/* LINKAR — Admin Portal logic (demo, in-memory) */
 
 const A = SEED.admin;
 let period = 'month';
 
 AL.boot({
   ar: {
-    portal_name: 'بوابة الإدارة', admin_user: 'فريق AutoLink',
+    portal_name: 'بوابة الإدارة', admin_user: 'فريق لينكار',
     topbar_sub: 'تقارير المنصة — جدة والرياض',
     nav_dashboard: 'لوحة التقارير', nav_tables: 'السجلات', nav_alerts: 'التنبيهات', nav_promos: 'العروض الترويجية',
     nav_providers: 'دليل المزودين', nav_finance: 'المالية والتسويات',
@@ -57,7 +57,7 @@ AL.boot({
     of_target: 'من المستهدف',
   },
   en: {
-    portal_name: 'Admin Portal', admin_user: 'AutoLink Team',
+    portal_name: 'Admin Portal', admin_user: 'LINKAR Team',
     topbar_sub: 'Platform reports — Jeddah & Riyadh',
     nav_dashboard: 'Dashboard', nav_tables: 'Logs', nav_alerts: 'Alerts', nav_promos: 'Promotions',
     nav_providers: 'Providers Directory', nav_finance: 'Finance & Payouts',
@@ -185,7 +185,7 @@ function renderTopProviders() {
         <div><div class="cell-strong">${L(p.name)}</div><div class="cell-muted">#${i + 1}</div></div></div></td>
       <td class="cell-num">${AL.money(p.bookings)}</td>
       <td class="cell-num cell-strong">${AL.sar(p.revenue)}</td>
-      <td><span style="color:var(--gold);font-weight:800">★ ${p.rating}</span></td>
+      <td><span style="color:var(--star);font-weight:800">★ ${p.rating}</span></td>
       <td><div class="progressbar" style="width:90px"><div style="width:${(p.revenue / A.topProviders[0].revenue) * 100}%"></div></div></td>`;
     tb.appendChild(tr);
   });
@@ -364,7 +364,7 @@ function renderCustomers() {
     tr.innerHTML = `
       <td><div class="row-flex">
         <div class="staff-avatar" style="width:32px;height:32px;font-size:.72rem">${L(c.name).slice(0, 1)}</div>
-        <div><div class="cell-strong">${L(c.name)} ${c.vip ? `<span class="chip gold" style="font-size:.58rem;padding:1px 7px">${t('vip')}</span>` : ''}</div>
+        <div><div class="cell-strong">${L(c.name)} ${c.vip ? `<span class="chip lime" style="font-size:.58rem;padding:1px 7px">${t('vip')}</span>` : ''}</div>
         <div class="cell-muted cell-num" style="direction:ltr;text-align:end">${c.phone}</div></div></div></td>
       <td>${L(SEED.cities[c.city])}</td>
       <td class="cell-num">${AL.money(c.bookings)}</td>
@@ -387,7 +387,7 @@ function openCustomer(i) {
     <h3>
       <div class="staff-avatar" style="width:38px;height:38px">${L(c.name).slice(0, 1)}</div>
       ${L(c.name)}
-      ${c.vip ? `<span class="chip gold">${t('vip')}</span>` : ''}
+      ${c.vip ? `<span class="chip lime">${t('vip')}</span>` : ''}
       <button class="x js-close" onclick="AL.closeModal('cu-modal')">✕</button></h3>
     <div class="kv"><span class="k">${t('th_customer')}</span><span class="v cell-num" style="direction:ltr">${c.phone}</span></div>
     <div class="kv"><span class="k">${t('th_city')}</span><span class="v">${L(SEED.cities[c.city])}</span></div>
@@ -416,7 +416,7 @@ document.querySelectorAll('#cu-table th.sortable').forEach((th) => {
   });
 });
 $('#cu-export').addEventListener('click', () => {
-  AL.exportCSV('autolink-customers.csv',
+  AL.exportCSV('linkar-customers.csv',
     ['Name', 'Phone', 'City', 'Bookings', 'Spend SAR', 'Wallet SAR', 'Last booking', 'Status'],
     A.customers.map((c) => [L(c.name), c.phone, L(SEED.cities[c.city]), c.bookings, c.spend, c.wallet, c.last, c.active ? 'active' : 'blocked']));
   AL.toast(t('exported'));
@@ -437,7 +437,7 @@ function renderDirectory() {
         <td>${L(SEED.cities[p.city])}</td>
         <td><span class="chip gray">${L(SEED.services[p.service])}</span></td>
         <td class="cell-num">${AL.money(p.bookings)}</td>
-        <td><span style="color:var(--gold);font-weight:800">★ ${p.rating}</span></td>
+        <td><span style="color:var(--star);font-weight:800">★ ${p.rating}</span></td>
         <td><span class="chip ${p.active ? 'green' : 'red'}">${t(p.active ? 'active' : 'inactive')}</span></td>
         <td><button class="btn ${p.active ? 'danger' : 'success'} sm" onclick="dirToggle(${i})">${t(p.active ? 'suspend' : 'activate')}</button></td>`;
       tb.appendChild(tr);
@@ -530,7 +530,7 @@ function renderFinReports() {
   });
 }
 $('#fr-export').addEventListener('click', () => {
-  AL.exportCSV('autolink-refunds.csv',
+  AL.exportCSV('linkar-refunds.csv',
     ['ID', 'Booking', 'Customer', 'Reason', 'Amount SAR', 'Status'],
     A.finance.refunds.map((r) => [r.id, r.booking, L(r.customer), L(r.reason), r.amount, r.status]));
   AL.toast(t('exported'));
